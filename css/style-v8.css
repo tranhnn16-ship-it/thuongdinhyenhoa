@@ -2923,3 +2923,718 @@ section.sponsor .sponsor__gallery > figure img{
     gap:.75rem !important;
   }
 }
+
+/* v8 batch — lotus size, partners composite, footer seamless, smooth scroll */
+
+/* Smooth scroll */
+html{ scroll-behavior:smooth; }
+
+/* Hero lotus lớn hơn */
+.hero__pattern.trong-dong-bg-wrap{
+  width:min(90vw,900px) !important;
+  aspect-ratio:1/1;
+}
+.hero__pattern .rotating-trong-dong{ opacity:.5 !important; }
+
+/* Partners composite figure */
+.partners__logos-figure{
+  width:100%;
+  max-height:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.partners__logos-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:8px;
+  background:#fff;
+}
+@media (max-width:820px){
+  .partners.partners--split{
+    grid-template-columns:1fr !important;
+  }
+  .partners__logos-figure img{ border-radius:6px; }
+}
+
+/* Footer: bỏ khoảng trắng dưới cùng - body dark */
+body{ background:var(--color-dark) !important; }
+html{ background:var(--color-dark); }
+.site-footer{
+  background:var(--color-dark) !important;
+  padding-bottom:2rem;
+}
+.site-footer__bottom{ display:none !important; }
+
+/* Slideshow behavior — galleries auto scroll với nút prev/next */
+.community__gallery,
+.sponsor__gallery,
+.project__gallery,
+.project__gallery--masonry,
+.gallery-carousel__track{
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  cursor:grab;
+}
+.community__gallery:active,
+.sponsor__gallery:active,
+.project__gallery:active,
+.project__gallery--masonry:active,
+.gallery-carousel__track:active{ cursor:grabbing; }
+
+/* v8 — Slideshow arrows for galleries */
+.slideshow-wrap{
+  position:relative;
+  max-width:var(--container);
+  margin:0 auto;
+}
+.slideshow-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px; height:48px;
+  border-radius:50%;
+  border:none;
+  background:rgba(244,241,234,.92);
+  color:var(--color-primary);
+  font-size:1.25rem;
+  font-weight:600;
+  cursor:pointer;
+  z-index:5;
+  box-shadow:0 6px 20px rgba(20,4,8,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .3s ease, transform .3s ease;
+}
+.slideshow-nav:hover{
+  background:var(--color-primary);
+  color:var(--color-cream-soft);
+  transform:translateY(-50%) scale(1.08);
+}
+.slideshow-nav--prev{ left:.5rem; }
+.slideshow-nav--next{ right:.5rem; }
+@media (max-width:520px){
+  .slideshow-nav{ width:38px; height:38px; font-size:1rem; }
+}
+
+/* v8 final batch */
+
+/* Hero lotus lớn hơn, hiện rõ */
+.hero__pattern.trong-dong-bg-wrap{ width:min(80vw,800px) !important; }
+.hero__pattern .rotating-trong-dong{ opacity:.35 !important; }
+
+/* Smooth scroll — bổ sung wheel/pan */
+html, body{
+  scroll-behavior:smooth !important;
+  overscroll-behavior-y:contain;
+}
+
+/* Slideshow: 1 ảnh full-width mỗi lần */
+.community__gallery,
+.sponsor__gallery,
+.project__gallery,
+.project__gallery--masonry,
+.gallery-carousel__track{
+  scroll-snap-type:x mandatory !important;
+  scroll-behavior:smooth !important;
+}
+.community__gallery > figure,
+.sponsor__gallery > figure,
+.project__gallery > figure,
+.project__gallery > .project__gallery-item,
+.project__gallery--masonry > figure,
+.gallery-carousel__track > figure{
+  flex:0 0 90% !important;
+  max-width:800px;
+  scroll-snap-align:center !important;
+  scroll-snap-stop:always !important;
+  aspect-ratio:16/9 !important;
+  height:auto !important;
+  border-radius:12px !important;
+}
+.community__gallery > figure img,
+.sponsor__gallery > figure img,
+.project__gallery > figure img,
+.project__gallery > .project__gallery-item img,
+.project__gallery--masonry > figure img,
+.gallery-carousel__track > figure img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+.slideshow-wrap{
+  padding:0 3rem;
+  overflow:hidden;
+}
+.slideshow-wrap > .community__gallery,
+.slideshow-wrap > .sponsor__gallery,
+.slideshow-wrap > .project__gallery,
+.slideshow-wrap > .project__gallery--masonry,
+.slideshow-wrap > .gallery-carousel__track{
+  scrollbar-width:none;
+}
+.slideshow-wrap > *::-webkit-scrollbar{ display:none; }
+
+/* Partners intro text contrast */
+.partners--split .partners__intro-text,
+.partners--split .partners__press{
+  color:#f4e8e2 !important;
+}
+.partners--split .partners__press em{ color:var(--color-gold-light) !important; }
+.partners--split .partners__intro .eyebrow{ letter-spacing:.15em; }
+
+/* Community + Sponsor sections trên homepage — bố cục nổi bật */
+.community, .sponsor{
+  position:relative;
+  padding:clamp(4rem,7vw,6rem) var(--gutter) !important;
+}
+.community .section-head,
+.sponsor .section-head{
+  max-width:820px;
+  margin:0 auto clamp(2rem,4vw,3rem);
+  text-align:center;
+  position:relative;
+}
+.community .section-head::before,
+.sponsor .section-head::before{
+  content:'';
+  display:block;
+  width:60px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--color-gold),transparent);
+  margin:0 auto 1.5rem;
+}
+.community__group,
+.sponsor__group{
+  max-width:var(--container);
+  margin:0 auto clamp(3rem,5vw,4rem);
+  position:relative;
+}
+.community__group-head,
+.sponsor__group-head{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto clamp(1.5rem,3vw,2.5rem);
+}
+.community__group-head h3,
+.sponsor__group-head h3{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem,2.6vw,2rem);
+  color:var(--color-gold-light) !important;
+  margin:0 0 .75rem;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.community__group-head h3::before,
+.sponsor__group-head h3::before{
+  content:'✦';
+  color:var(--color-gold);
+  font-size:.8em;
+  margin-right:.6em;
+  vertical-align:middle;
+}
+.community__group-head h3::after,
+.sponsor__group-head h3::after{
+  content:'✦';
+  color:var(--color-gold);
+  font-size:.8em;
+  margin-left:.6em;
+  vertical-align:middle;
+}
+.community__group-head p,
+.sponsor__group-head p{
+  color:#e8dcd6 !important;
+  line-height:1.7;
+  font-style:italic;
+}
+.community__more,
+.sponsor__more{
+  text-align:center;
+  margin-top:clamp(2rem,4vw,3rem);
+}
+.community__more a,
+.sponsor__more a{
+  color:var(--color-gold-light) !important;
+  border-bottom:1px solid var(--color-gold);
+  padding-bottom:.25rem;
+  font-weight:600;
+  letter-spacing:.05em;
+}
+
+/* v8 — Slideshow dots */
+.slideshow-dots{
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:1.5rem;
+  flex-wrap:wrap;
+}
+.slideshow-dot{
+  width:10px; height:10px;
+  border-radius:50%;
+  border:none;
+  background:rgba(244,241,234,.25);
+  cursor:pointer;
+  padding:0;
+  transition:background .3s ease, transform .3s ease;
+}
+.slideshow-dot.is-active{
+  background:var(--color-gold);
+  transform:scale(1.3);
+}
+.slideshow-dot:hover{ background:var(--color-gold-light); }
+
+/* v8 batch — hero lotus bigger + community/sponsor premium panels + slideshow proof */
+
+/* Hero lotus phóng to */
+.hero__pattern.trong-dong-bg-wrap{
+  width:min(105vw,1100px) !important;
+  aspect-ratio:1/1;
+}
+.hero__pattern .rotating-trong-dong{ opacity:.45 !important; }
+
+/* Community + Sponsor sections — khung nền premium */
+.community, .sponsor{
+  padding:clamp(4.5rem,8vw,7rem) var(--gutter) !important;
+  position:relative;
+}
+.community__group,
+.sponsor__group{
+  background:
+    linear-gradient(180deg, rgba(99,8,20,.10) 0%, rgba(42,8,16,.5) 100%),
+    radial-gradient(ellipse at top, rgba(183,147,102,.14), transparent 60%);
+  border:1px solid rgba(183,147,102,.25);
+  border-radius:16px;
+  padding:clamp(2rem,4vw,3rem) clamp(1.5rem,3vw,2.5rem);
+  margin-bottom:clamp(2rem,4vw,3rem);
+  position:relative;
+  box-shadow:0 20px 48px rgba(0,0,0,.35);
+}
+.community__group::before,
+.sponsor__group::before{
+  content:'';
+  position:absolute;
+  top:-1px; left:50%;
+  transform:translateX(-50%);
+  width:80px; height:2px;
+  background:linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.community__group-head h3,
+.sponsor__group-head h3{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem,2.8vw,2.2rem) !important;
+  color:var(--color-gold-light) !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
+  text-align:center;
+  margin:0 0 1rem;
+  letter-spacing:.02em;
+  position:relative;
+}
+.community__group-head p,
+.sponsor__group-head p{
+  color:#f4e8e2 !important;
+  font-size:1.02rem !important;
+  line-height:1.75 !important;
+  font-style:italic;
+  text-align:center;
+  max-width:640px;
+  margin:0 auto clamp(1.5rem,3vw,2.5rem);
+  text-shadow:0 1px 6px rgba(0,0,0,.35);
+}
+.community__more a,
+.sponsor__more a{
+  color:var(--color-gold-light) !important;
+  border-bottom:1px solid var(--color-gold);
+  font-weight:600;
+  letter-spacing:.05em;
+  text-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+
+/* Section head - eyebrow more visible */
+.community .section-head .eyebrow,
+.sponsor .section-head .eyebrow{
+  color:var(--color-gold-light) !important;
+  letter-spacing:.2em;
+  font-size:.9rem;
+}
+.community .section-head .section-title,
+.sponsor .section-head .section-title{
+  color:var(--color-cream-soft) !important;
+  text-shadow:0 2px 14px rgba(0,0,0,.5);
+}
+
+/* Slideshow chắc chắn - 1 ảnh full width mỗi lần */
+.slideshow-wrap{
+  padding:0 4rem;
+  overflow:visible;
+}
+.community__gallery,
+.sponsor__gallery,
+.project__gallery,
+.project__gallery--masonry,
+.gallery-carousel__track{
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  display:flex !important;
+  gap:0 !important;
+  padding:.5rem 0 !important;
+}
+.community__gallery > figure,
+.sponsor__gallery > figure,
+.project__gallery > figure,
+.project__gallery > .project__gallery-item,
+.project__gallery--masonry > figure,
+.gallery-carousel__track > figure{
+  flex:0 0 100% !important;
+  scroll-snap-align:center !important;
+  scroll-snap-stop:always !important;
+  margin:0 !important;
+  padding:0 .5rem;
+  box-sizing:border-box;
+}
+.community__gallery > figure > img,
+.sponsor__gallery > figure > img,
+.project__gallery > figure > img,
+.project__gallery > .project__gallery-item > img,
+.project__gallery--masonry > figure > img,
+.gallery-carousel__track > figure > img{
+  width:100% !important;
+  height:clamp(240px,40vw,520px) !important;
+  object-fit:cover !important;
+  border-radius:12px !important;
+  box-shadow:0 20px 48px rgba(0,0,0,.4);
+}
+@media (max-width:820px){
+  .slideshow-wrap{ padding:0 2.5rem; }
+}
+
+/* v8 fine-tune */
+
+/* 1. Hoa sen hero mờ hơn */
+.hero__pattern .rotating-trong-dong{ opacity:.22 !important; }
+
+/* 2. Community + Sponsor group — khung màu bắt mắt hơn */
+.community__group,
+.sponsor__group{
+  background: linear-gradient(135deg, rgba(75,45,15,.55) 0%, rgba(99,8,20,.45) 50%, rgba(42,8,16,.65) 100%), radial-gradient(ellipse at top left, rgba(209,168,117,.22), transparent 55%) !important;
+  border:2px solid transparent !important;
+  border-image:linear-gradient(135deg, #d1a875 0%, #b79366 45%, #6b3e14 100%) 1 !important;
+  border-radius:20px !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.55), inset 0 0 40px rgba(209,168,117,.10) !important;
+}
+
+/* 3. Text trong khung — cực nổi bật trên nền */
+.community__group-head h3,
+.sponsor__group-head h3{
+  color:#f5deb8 !important;
+  text-shadow:0 2px 16px rgba(0,0,0,.7), 0 0 30px rgba(209,168,117,.35) !important;
+  font-weight:700 !important;
+  font-size:clamp(1.7rem,3vw,2.4rem) !important;
+}
+.community__group-head p,
+.sponsor__group-head p{
+  color:#fff8ec !important;
+  font-style:italic;
+  font-weight:400 !important;
+  text-shadow:0 2px 10px rgba(0,0,0,.6) !important;
+  font-size:1.05rem !important;
+  opacity:1 !important;
+}
+
+/* 4. Text ngoài khung (section head) — bắt mắt hơn */
+.community .section-head .eyebrow,
+.sponsor .section-head .eyebrow{
+  color:var(--color-gold) !important;
+  font-weight:700 !important;
+  letter-spacing:.25em !important;
+  text-shadow:0 0 20px rgba(209,168,117,.4);
+}
+.community .section-head .section-title,
+.sponsor .section-head .section-title{
+  color:#fff8ec !important;
+  font-weight:700 !important;
+  text-shadow:0 3px 20px rgba(0,0,0,.6), 0 0 40px rgba(209,168,117,.15) !important;
+}
+.community .section-head .section-lead,
+.sponsor .section-head .section-lead{
+  color:#e8dcc9 !important;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+  font-size:1.05rem !important;
+}
+
+/* 5. Nút xem chi tiết nổi hơn */
+.community__more a,
+.sponsor__more a{
+  display:inline-block;
+  padding:.85rem 2rem;
+  background:linear-gradient(135deg, var(--color-gold), var(--color-gold-light)) !important;
+  color:var(--color-dark) !important;
+  border-radius:6px;
+  border:none !important;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-size:.85rem;
+  text-shadow:none !important;
+  box-shadow:0 8px 24px rgba(209,168,117,.35);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.community__more a:hover,
+.sponsor__more a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(209,168,117,.5);
+}
+
+/* v8 — Community/Sponsor: text bên ngoài trên nền tối + 3 khung đồng bộ theme */
+
+/* Section title "Lan Toả Yêu Thương" — cực nổi bật */
+.community .section-head .eyebrow,
+.sponsor .section-head .eyebrow{
+  color:#e8c992 !important;
+  font-weight:700 !important;
+  letter-spacing:.25em !important;
+  text-shadow:0 0 24px rgba(232,201,146,.55), 0 2px 8px rgba(0,0,0,.6) !important;
+  font-size:.95rem !important;
+}
+.community .section-head .section-title,
+.sponsor .section-head .section-title{
+  color:#ffffff !important;
+  font-weight:800 !important;
+  text-shadow:0 4px 24px rgba(0,0,0,.75), 0 0 40px rgba(232,201,146,.25) !important;
+  font-size:clamp(2rem,4vw,3rem) !important;
+}
+.community .section-head .section-lead,
+.sponsor .section-head .section-lead{
+  color:#f4e8d8 !important;
+  font-weight:400 !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.65) !important;
+  font-size:1.08rem !important;
+  line-height:1.75 !important;
+  max-width:720px;
+  margin-inline:auto;
+}
+
+/* 3 khung: đồng bộ theme website — burgundy + gold */
+.community__group,
+.sponsor__group{
+  background:
+    linear-gradient(180deg, rgba(99,8,20,.35) 0%, rgba(42,8,16,.75) 100%),
+    radial-gradient(circle at 50% 0%, rgba(183,147,102,.18), transparent 65%) !important;
+  border:2px solid var(--color-gold) !important;
+  border-image:none !important;
+  border-radius:14px !important;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.5),
+    0 0 0 1px rgba(183,147,102,.15),
+    inset 0 1px 0 rgba(244,232,216,.08) !important;
+  position:relative;
+  overflow:visible;
+}
+.community__group::before,
+.sponsor__group::before{
+  content:'❋';
+  position:absolute;
+  top:-14px; left:50%;
+  transform:translateX(-50%);
+  width:28px; height:28px;
+  display:flex;
+  align-items:center; justify-content:center;
+  background:var(--color-dark);
+  color:var(--color-gold);
+  font-size:1.1rem;
+  border-radius:50%;
+  border:1px solid var(--color-gold);
+  z-index:2;
+}
+
+/* Text trong khung — vàng nhạt + trắng */
+.community__group-head h3,
+.sponsor__group-head h3{
+  color:#e8c992 !important;
+  text-shadow:0 2px 14px rgba(0,0,0,.7), 0 0 22px rgba(232,201,146,.35) !important;
+  font-weight:700 !important;
+}
+.community__group-head p,
+.sponsor__group-head p{
+  color:#f4e8d8 !important;
+  font-style:italic;
+  text-shadow:0 2px 10px rgba(0,0,0,.6) !important;
+}
+
+/* v8 fix — section head text (ngoài khung) trên nền CREAM cần MÀU TỐI */
+.community .section-head .eyebrow,
+.sponsor .section-head .eyebrow{
+  color:var(--color-primary) !important;
+  text-shadow:none !important;
+}
+.community .section-head .section-title,
+.sponsor .section-head .section-title{
+  color:var(--color-heading) !important;
+  text-shadow:none !important;
+  font-weight:700 !important;
+}
+.community .section-head .section-lead,
+.sponsor .section-head .section-lead{
+  color:var(--color-body) !important;
+  text-shadow:none !important;
+}
+
+/* v8 tune — text đậm hơn + gradient khung rõ hơn */
+
+/* Gradient khung rõ ràng, đậm hơn */
+.community__group,
+.sponsor__group{
+  background:
+    linear-gradient(135deg, #7a1024 0%, #5a0a1a 40%, #3a0812 100%),
+    radial-gradient(ellipse at top, rgba(232,201,146,.28), transparent 55%) !important;
+  border:2px solid #d1a875 !important;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.55),
+    0 0 0 1px rgba(232,201,146,.2),
+    inset 0 2px 0 rgba(255,220,170,.15) !important;
+}
+
+/* Text trong khung đậm màu hơn */
+.community__group-head h3,
+.sponsor__group-head h3{
+  color:#ffd98a !important;
+  font-weight:800 !important;
+  text-shadow:0 3px 18px rgba(0,0,0,.85), 0 0 30px rgba(255,217,138,.5) !important;
+  letter-spacing:.03em;
+}
+.community__group-head p,
+.sponsor__group-head p{
+  color:#fff5e0 !important;
+  font-style:italic;
+  font-weight:500 !important;
+  text-shadow:0 2px 14px rgba(0,0,0,.85) !important;
+  font-size:1.08rem !important;
+}
+
+/* v8 — Community/Sponsor slideshow ảnh full size không cắt */
+.community__gallery > figure > img,
+.sponsor__gallery > figure > img{
+  width:100% !important;
+  height:auto !important;
+  max-height:clamp(340px,52vw,620px) !important;
+  object-fit:contain !important;
+  background:rgba(42,8,16,.4);
+  border-radius:12px !important;
+  box-shadow:0 20px 48px rgba(0,0,0,.4);
+}
+.community__gallery > figure,
+.sponsor__gallery > figure{
+  aspect-ratio:auto !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* v8 — Force contain (specificity boost) */
+body .community__gallery figure img,
+body .sponsor__gallery figure img{
+  object-fit:contain !important;
+  height:auto !important;
+  max-height:clamp(340px,52vw,620px) !important;
+}
+
+/* v8 — HARD RESET: ensure page can scroll normally */
+html, body{
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:auto !important;
+  height:auto !important;
+  position:static !important;
+  scroll-behavior:auto !important;
+}
+
+/* v8 — Scroll performance optimizations */
+
+/* Sections dùng content-visibility để browser skip offscreen paint */
+main > section{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 800px;
+}
+/* Hero luôn render vì có animation */
+main > section.hero{ content-visibility:visible; }
+
+/* Ảnh async decoding + GPU compositing */
+img{
+  content-visibility:auto;
+  image-rendering:auto;
+}
+
+/* Giảm animation load: chỉ chạy animation khi visible */
+.rotating-trong-dong,
+.rotating-medallion{
+  will-change:transform;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+
+/* Data-reveal — dùng transform GPU compose */
+[data-reveal]{
+  will-change:opacity, transform;
+  backface-visibility:hidden;
+}
+
+/* Fixed header — dùng backdrop-filter tối ưu */
+.site-header{
+  contain:layout paint;
+  will-change:transform;
+}
+
+/* v8 — Revert perf hacks, disable animations/reveals that cause jitter */
+
+/* Disable content-visibility (causes jump khi vào viewport) */
+main > section{
+  content-visibility:visible !important;
+  contain:none !important;
+}
+img{ content-visibility:visible !important; }
+
+/* Turn off infinite animations trên hero/footer (tốn GPU) */
+.rotating-trong-dong,
+.rotating-medallion,
+.hero__bird,
+.craft-bg{
+  animation:none !important;
+}
+
+/* Disable data-reveal opacity fade — luôn hiện */
+[data-reveal]{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+  will-change:auto !important;
+}
+[data-scroll-motif]{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+}
+
+/* Reduce paint area of complex sections */
+.trong-dong-bg-wrap{
+  will-change:auto;
+  contain:strict;
+  transform:translate(-50%,-50%);
+}
+
+/* v8 — Bật lại hoa sen xoay (giữ mượt bằng GPU) */
+.rotating-trong-dong{
+  animation:spinTrongDong 90s linear infinite !important;
+  will-change:transform;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+.rotating-medallion{
+  animation:spinMedallion 120s linear infinite !important;
+  will-change:transform;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
