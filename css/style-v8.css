@@ -3727,3 +3727,17 @@ html body .sponsor__gallery > figure{
   justify-content:center !important;
   padding:0 .5rem !important;
 }
+
+/* v8 — Product CTA band cùng màu với footer */
+body.page-light .product-cta-band{
+  background:var(--color-dark) !important;
+  color:var(--color-cream-soft);
+}
+body.page-light .product-cta-band .section-title,
+body.page-light .product-cta-band h2{
+  color:var(--color-cream-soft) !important;
+}
+body.page-light .product-cta-band .section-lead,
+body.page-light .product-cta-band p{
+  color:#d8c9c2 !important;
+}
