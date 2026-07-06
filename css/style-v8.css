@@ -3741,3 +3741,45 @@ body.page-light .product-cta-band .section-lead,
 body.page-light .product-cta-band p{
   color:#d8c9c2 !important;
 }
+
+/* v8 — Footer trang page-light: đồng màu section liền kề (cream) */
+body.page-light .site-footer{
+  background:var(--color-cream-soft) !important;
+}
+body.page-light .site-footer .brand-mark__text > span,
+body.page-light .site-footer__tagline,
+body.page-light .site-footer__contact li,
+body.page-light .site-footer__contact a,
+body.page-light .site-footer__nav a{
+  color:var(--color-body) !important;
+}
+body.page-light .site-footer__contact a:hover,
+body.page-light .site-footer__nav a:hover{
+  color:var(--color-primary) !important;
+}
+body.page-light .site-footer .rotating-trong-dong{ opacity:.10 !important; }
+
+/* San-pham page cần footer dark như cũ */
+body.page-light:has(.jar-hero) .site-footer{
+  background:var(--color-dark) !important;
+}
+body.page-light:has(.jar-hero) .site-footer *{
+  color:inherit !important;
+}
+
+/* v8 — page-cream-footer (ve-chung-toi): footer đồng màu cream với section trên */
+body.page-cream-footer .site-footer{
+  background:var(--color-cream-soft) !important;
+}
+body.page-cream-footer .site-footer .brand-mark__text > span,
+body.page-cream-footer .site-footer__tagline,
+body.page-cream-footer .site-footer__contact li,
+body.page-cream-footer .site-footer__contact a,
+body.page-cream-footer .site-footer__nav a{
+  color:var(--color-body) !important;
+}
+body.page-cream-footer .site-footer__contact a:hover,
+body.page-cream-footer .site-footer__nav a:hover{
+  color:var(--color-primary) !important;
+}
+body.page-cream-footer .site-footer .rotating-trong-dong{ opacity:.10 !important; }
