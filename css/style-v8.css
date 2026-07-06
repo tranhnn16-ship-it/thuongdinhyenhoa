@@ -3783,3 +3783,13 @@ body.page-cream-footer .site-footer__nav a:hover{
   color:var(--color-primary) !important;
 }
 body.page-cream-footer .site-footer .rotating-trong-dong{ opacity:.10 !important; }
+
+/* v8 — Ve-chung-toi: about-cta liền mạch với footer (cả 2 dark) */
+.about-cta{
+  background:var(--color-dark) !important;
+  padding-bottom:clamp(2rem,4vw,3rem) !important;
+}
+.about-cta + .site-footer,
+main:has(.about-cta) ~ .site-footer{
+  border-top:none !important;
+}
