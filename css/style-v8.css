@@ -3698,3 +3698,32 @@ body.page-light .product-cta-band p{
 body.page-light .site-footer{
   background:var(--color-dark) !important;
 }
+
+/* v8 — Force contain with higher specificity */
+html body .project__gallery > .project__gallery-item > img,
+html body .project__gallery > figure > img,
+html body .project__gallery--masonry > figure > img,
+html body .gallery-carousel__track > figure > img,
+html body .community__gallery > figure > img,
+html body .sponsor__gallery > figure > img{
+  object-fit:contain !important;
+  height:auto !important;
+  width:auto !important;
+  max-width:100% !important;
+  max-height:clamp(340px,52vw,620px) !important;
+  border-radius:12px !important;
+  background:rgba(42,8,16,.12);
+}
+html body .project__gallery > .project__gallery-item,
+html body .project__gallery > figure,
+html body .project__gallery--masonry > figure,
+html body .gallery-carousel__track > figure,
+html body .community__gallery > figure,
+html body .sponsor__gallery > figure{
+  aspect-ratio:auto !important;
+  height:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 .5rem !important;
+}
