@@ -3638,3 +3638,63 @@ img{ content-visibility:visible !important; }
   transform:translateZ(0);
   backface-visibility:hidden;
 }
+
+/* v8 fix — project__gallery ảnh full size (cong-dong + tai-tro) */
+body .project__gallery figure img,
+body .project__gallery-item img,
+body .project__gallery--masonry figure img,
+body .gallery-carousel__track figure img{
+  object-fit:contain !important;
+  height:auto !important;
+  width:auto !important;
+  max-width:100% !important;
+  max-height:clamp(340px,52vw,620px) !important;
+  border-radius:12px !important;
+  background:rgba(42,8,16,.15);
+}
+body .project__gallery figure,
+body .project__gallery-item,
+body .project__gallery--masonry figure,
+body .gallery-carousel__track figure{
+  aspect-ratio:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 90% !important;
+  scroll-snap-align:center !important;
+  padding:0 .5rem;
+}
+
+/* San-pham page nền sáng */
+body:has(.jar-hero),
+body:has(.jar-carousel),
+body:has(.product-cta-band){
+  background:var(--color-cream-soft) !important;
+}
+.jar-hero, .jar-carousel, .product-cta-band{
+  background:transparent !important;
+}
+
+/* v8 — Body class page-light (san-pham) → nền cream */
+body.page-light{
+  background:var(--color-cream-soft) !important;
+}
+body.page-light .jar-hero,
+body.page-light .jar-carousel,
+body.page-light .product-cta-band,
+body.page-light main > section{
+  background:transparent !important;
+}
+body.page-light .jar-hero__title,
+body.page-light .jar-carousel h2,
+body.page-light .product-cta-band h2{
+  color:var(--color-heading) !important;
+}
+body.page-light .jar-hero__lead,
+body.page-light .jar-carousel p,
+body.page-light .product-cta-band p{
+  color:var(--color-body) !important;
+}
+body.page-light .site-footer{
+  background:var(--color-dark) !important;
+}
